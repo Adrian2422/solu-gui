@@ -1,0 +1,43 @@
+.login {
+	&__wrapper {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+		width: 100vw;
+		background: url(../../assets/images/backgrounds/login_lg.svg) center
+			no-repeat #292b48;
+	}
+
+	&__box {
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: center;
+		width: 400px;
+		min-height: 400px;
+		padding: 24px 64px;
+		background-color: #ffffff;
+		border-radius: 2px;
+	}
+
+	&__form {
+		display: flex;
+		flex-flow: column nowrap;
+		width: 100%;
+		gap: 8px;
+	}
+
+	&__control {
+		display: flex;
+		flex-flow: column nowrap;
+		margin-bottom: 8px;
+
+		&--checkbox {
+			display: flex;
+			flex-flow: row nowrap;
+			gap: 8px;
+			margin-bottom: 8px;
+		}
+	}
+}
