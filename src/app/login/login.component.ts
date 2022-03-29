@@ -8,11 +8,17 @@ import {
 	Validators
 } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import {
+	TRANSLOCO_SCOPE,
+	TranslocoService,
+	getBrowserLang
+} from '@ngneat/transloco';
 
 @Component({
 	selector: 'app-login',
 	templateUrl: './login.component.html',
-	styleUrls: ['./login.component.scss']
+	styleUrls: ['./login.component.scss'],
+	providers: [{ provide: TRANSLOCO_SCOPE, useValue: 'login' }]
 })
 export class LoginComponent implements OnInit {
 	public loginForm!: FormGroup;
@@ -26,9 +32,17 @@ export class LoginComponent implements OnInit {
 	}
 
 	// eslint-disable-next-line no-empty-function
-	constructor(private readonly loginService: LoginService) {}
+	constructor(
+		private readonly loginService: LoginService,
+		private readonly translate: TranslocoService
+	) {}
 
 	ngOnInit(): void {
+		const browserLang = getBrowserLang();
+		if (browserLang) {
+			this.translate.setActiveLang(browserLang);
+		}
+
 		this.loginForm = new FormGroup({
 			email: new FormControl('', [ Validators.email, Validators.required ]),
 			password: new FormControl('', [
