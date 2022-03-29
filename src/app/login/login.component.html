@@ -1,9 +1,9 @@
-<div class="login__wrapper">
+<div class="login__wrapper" *transloco="let t">
 	<div class="login__box">
 		<h1 class="login__logo">Solu</h1>
 		<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login__form">
 			<div class="login__control">
-				<label for="email">Email: </label>
+				<label for="email">{{ t('login.email') }} </label>
 				<input pInputText id="email" type="email" formControlName="email" />
 				<small
 					*ngIf="email?.invalid && (email?.dirty || email?.touched)"
@@ -13,7 +13,7 @@
 				>
 			</div>
 			<div class="login__control">
-				<label for="password">Password: </label>
+				<label for="password">{{ t('login.password') }}</label>
 				<input
 					pInputText
 					id="password"
@@ -33,12 +33,12 @@
 					formControlName="rememberMe"
 					[binary]="true"
 				></p-checkbox>
-				<label for="rememberMe">Remember me</label>
+				<label for="rememberMe">{{ t('login.remember-me') }}</label>
 			</div>
 			<button
 				pButton
 				type="submit"
-				label="Log In"
+				[label]="t('login.signin')"
 				[disabled]="!loginForm.valid"
 			></button>
 		</form>
