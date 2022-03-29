@@ -5,6 +5,12 @@
 			<div class="login__control">
 				<label for="email">Email: </label>
 				<input pInputText id="email" type="email" formControlName="email" />
+				<small
+					*ngIf="email?.invalid && (email?.dirty || email?.touched)"
+					id="email-help"
+					class="p-error block"
+					>Please enter correct email adress!</small
+				>
 			</div>
 			<div class="login__control">
 				<label for="password">Password: </label>
@@ -14,6 +20,12 @@
 					type="password"
 					formControlName="password"
 				/>
+				<small
+					*ngIf="password?.invalid && (password?.dirty || password?.touched)"
+					id="password-help"
+					class="p-error block"
+					>Please enter correct password!</small
+				>
 			</div>
 			<div class="login__control--checkbox">
 				<p-checkbox

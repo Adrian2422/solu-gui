@@ -1,8 +1,13 @@
 import { ISigninDto } from './dto/signin.dto';
 import { LoginService } from './services/login.service';
 import { tap } from 'rxjs';
+import {
+	AbstractControl,
+	FormControl,
+	FormGroup,
+	Validators
+} from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
 	selector: 'app-login',
@@ -11,6 +16,14 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 	public loginForm!: FormGroup;
+
+	get email(): AbstractControl | null {
+		return this.loginForm.get('email');
+	}
+
+	get password(): AbstractControl | null {
+		return this.loginForm.get('password');
+	}
 
 	// eslint-disable-next-line no-empty-function
 	constructor(private readonly loginService: LoginService) {}
@@ -28,8 +41,8 @@ export class LoginComponent implements OnInit {
 
 	onSubmit(): void {
 		const credentials: ISigninDto = {
-			email: this.loginForm.get('email')?.value,
-			password: this.loginForm.get('password')?.value
+			email: this.email?.value,
+			password: this.password?.value
 		};
 
 		this.loginService
