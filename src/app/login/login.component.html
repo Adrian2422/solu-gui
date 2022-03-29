@@ -1,6 +1,6 @@
 <div class="login__wrapper" *transloco="let t">
 	<div class="login__box">
-		<h1 class="login__logo">Solu</h1>
+		<div class="login__logo logo__text"></div>
 		<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login__form">
 			<div class="login__control">
 				<label for="email">{{ t('login.email') }} </label>

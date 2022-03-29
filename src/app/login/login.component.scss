@@ -21,6 +21,10 @@
 		border-radius: 2px;
 	}
 
+	&__logo {
+		margin: 16px 0;
+	}
+
 	&__form {
 		display: flex;
 		flex-flow: column nowrap;
