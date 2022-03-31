@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
 	public title = 'solu-gui';
 	public isAuthenticated!: boolean;
+	public isTokenExpired!: boolean;
 	public intervalId = -1;
 
 	constructor(
@@ -23,17 +24,10 @@ export class AppComponent implements OnInit {
 		this.translate.setDefaultLang('en');
 		this.translate.use('en');
 
-		this.checkIfUserIsAuthenticated();
-
-		if (this.isAuthenticated) {
-			this.startCheckingIfUserWasSignedOut();
-		}
-
 		this.commonService.userSigninEvent
 			.pipe(
 				tap(() => {
 					this.isAuthenticated = true;
-					this.startCheckingIfUserWasSignedOut();
 				})
 			)
 			.subscribe();
@@ -47,25 +41,5 @@ export class AppComponent implements OnInit {
 				})
 			)
 			.subscribe();
-	}
-
-	public checkIfUserIsAuthenticated(): void {
-		this.isAuthenticated = this.commonService.checkIfUserIsSignedIn();
-		console.log(`User status: ${this.isAuthenticated}`);
-	}
-
-	private startCheckingIfUserWasSignedOut(): void {
-		this.intervalId = window.setInterval(() => {
-			this.checkIfUserIsAuthenticated();
-
-			if (!this.isAuthenticated) {
-				this.stopCheckingIfUserWasSignedOut();
-			}
-		}, 5000);
-	}
-
-	private stopCheckingIfUserWasSignedOut(): void {
-		window.clearInterval(this.intervalId);
-		console.log('cleared');
 	}
 }

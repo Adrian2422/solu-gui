@@ -1,5 +1,6 @@
 import { CommonService } from './../common/services/common.service';
 import { TranslateService } from '@ngx-translate/core';
+import getToken from 'src/shared/utils/getToken';
 import { tap } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import { MenuItem, PrimeNGConfig } from 'primeng/api';
@@ -33,9 +34,8 @@ export class HeaderComponent implements OnInit {
 	}
 
 	private generateUserNameLabel(): string {
-		const decodedToken = this.commonService.getDecodedToken(
-			localStorage?.getItem('auth') || sessionStorage?.getItem('auth') || ''
-		);
+		const token = getToken();
+		const decodedToken = this.commonService.getDecodedToken(token);
 		return `${decodedToken.firstName} ${decodedToken.lastName}`;
 	}
 
