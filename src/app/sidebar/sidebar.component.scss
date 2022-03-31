@@ -1,0 +1,64 @@
+@use 'src/assets/scss/variables';
+@use 'src/assets/scss/colors';
+
+.sidebar {
+	&__header {
+		display: flex;
+		flex-flow: row nowrap;
+		height: variables.$HEADER_HEIGHT;
+		gap: variables.$SPACING_SMALL;
+		align-items: center;
+		justify-content: center;
+		border-bottom: 1px solid colors.$BLUE_DARK_PRIMARY;
+		background-color: colors.$WHITE;
+		color: colors.$WHITE;
+	}
+
+	&__container {
+		display: flex;
+		flex-flow: column nowrap;
+		height: 100vh;
+		width: variables.$SIDEBAR_WIDTH_BIG;
+		background-color: colors.$BLUE_DARK_PRIMARY;
+		color: colors.$GRAY_FONT;
+
+		&--small {
+			display: flex;
+			flex-flow: column nowrap;
+			height: 100vh;
+			width: variables.$SIDEBAR_WIDTH_SMALL;
+			background-color: colors.$BLUE_DARK_PRIMARY;
+			color: colors.$GRAY_FONT;
+		}
+	}
+
+	&__item {
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		justify-content: space-between;
+		height: 50px;
+		cursor: pointer;
+		padding-left: variables.$SPACING_LARGE;
+
+		&:hover {
+			background-color: lighten($color: colors.$BLUE_DARK_PRIMARY, $amount: 1);
+			color: colors.$WHITE;
+		}
+
+		&--left {
+			display: flex;
+			flex-flow: row nowrap;
+			align-items: center;
+			gap: variables.$SPACING_SMALL;
+		}
+
+		&--right {
+			display: flex;
+			flex-flow: row nowrap;
+			align-items: center;
+			justify-content: center;
+			width: 50px;
+		}
+	}
+}

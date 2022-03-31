@@ -1,1 +1,14 @@
-<app-login></app-login>
+<ng-container *ngIf="isAuthenticated; else login">
+	<div class="layout__wrapper">
+		<app-sidebar></app-sidebar>
+
+		<div class="layout__right">
+			<app-header></app-header>
+			<div class="layout__mainContent"></div>
+		</div>
+	</div>
+</ng-container>
+
+<ng-template #login>
+	<app-login></app-login>
+</ng-template>
