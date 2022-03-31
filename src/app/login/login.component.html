@@ -1,19 +1,19 @@
-<div class="login__wrapper" *transloco="let t">
+<div class="login__wrapper">
 	<div class="login__box">
 		<div class="login__logo logo__text"></div>
 		<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login__form">
 			<div class="login__control">
-				<label for="email">{{ t('login.email') }} </label>
+				<label for="email">{{ 'LOGIN.EMAIL' | translate }} </label>
 				<input pInputText id="email" type="email" formControlName="email" />
 				<small
-					*ngIf="email?.invalid && (email?.dirty || email?.touched)"
+					*ngIf="isControlInvalidOrDirty(email)"
 					id="email-help"
 					class="p-error block"
-					>Please enter correct email adress!</small
+					>{{ generateErrorMessage('email', email) | translate }}</small
 				>
 			</div>
 			<div class="login__control">
-				<label for="password">{{ t('login.password') }}</label>
+				<label for="password">{{ 'LOGIN.PASSWORD' | translate }}</label>
 				<input
 					pInputText
 					id="password"
@@ -21,10 +21,10 @@
 					formControlName="password"
 				/>
 				<small
-					*ngIf="password?.invalid && (password?.dirty || password?.touched)"
+					*ngIf="isControlInvalidOrDirty(password)"
 					id="password-help"
 					class="p-error block"
-					>Please enter correct password!</small
+					>{{ generateErrorMessage('password', password) | translate }}</small
 				>
 			</div>
 			<div class="login__control--checkbox">
@@ -33,12 +33,12 @@
 					formControlName="rememberMe"
 					[binary]="true"
 				></p-checkbox>
-				<label for="rememberMe">{{ t('login.remember-me') }}</label>
+				<label for="rememberMe">{{ 'LOGIN.REMEMBER-ME' | translate }}</label>
 			</div>
 			<button
 				pButton
 				type="submit"
-				[label]="t('login.signin')"
+				label="{{ 'LOGIN.SIGNIN' | translate }}"
 				[disabled]="!loginForm.valid"
 			></button>
 		</form>

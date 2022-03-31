@@ -1,0 +1,14 @@
+<div class="sidebar__container" [@toggleAnimation]="sidebarState">
+	<div class="sidebar__header">
+		<div [class]="translateSidebarState() ? 'logo__text' : 'logo__icon'"></div>
+	</div>
+	<div class="sidebar__item" *ngFor="let item of sidebarItems">
+		<div class="sidebar__item--left">
+			<i class="{{ 'pi ' + item.icon }}"></i>
+			<span *ngIf="translateSidebarState()">{{ item.label | translate }}</span>
+		</div>
+		<div *ngIf="translateSidebarState()" class="sidebar__item--right">
+			<i class="pi pi-angle-right"></i>
+		</div>
+	</div>
+</div>

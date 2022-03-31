@@ -1,4 +1,25 @@
 {
-	"hello": "transloco pl",
-	"dynamic": "transloco {{value}}"
+  "ERROR": {
+    "ILLEGAL_CHARACTERS": "Hasło może zawierać tylko małe i duże litery, cyfry i znaki specjalne!",
+    "INVALID_EMAIL": "Nieprawidłowy email!",
+    "MAX_PASSWORD_LENGTH": "Maksymalna długość hasła to 24 znaki!",
+    "MIN_PASSWORD_LENGTH": "Minimalna długość hasła to 8 znaków!",
+    "REQUIRED": "Pole jest wymagane!"
+  },
+  "HEADER": {
+    "PROFILE": "Profil",
+    "SIGNOUT": "Wyloguj"
+  },
+  "LOGIN": {
+    "EMAIL": "Email",
+    "PASSWORD": "Hasło",
+    "REMEMBER-ME": "Zapamiętaj mnie",
+    "SIGNIN": "Zaloguj"
+  },
+  "SIDEBAR": {
+    "ARCHIVE": "Archiwum",
+    "SETTINGS": "Ustawienia",
+    "TICKETS": "Zgłoszenia",
+    "USERS": "Użytkownicy"
+  }
 }

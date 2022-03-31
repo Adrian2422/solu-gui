@@ -1,4 +1,25 @@
 {
-	"hello": "transloco en",
-	"dynamic": "transloco {{value}}"
+  "ERROR": {
+    "ILLEGAL_CHARACTERS": "The password can only contain upper and lower case letters, numbers and special characters!",
+    "INVALID_EMAIL": "Email is invalid!",
+    "MAX_PASSWORD_LENGTH": "The maximum password length is 8 characters!",
+    "MIN_PASSWORD_LENGTH": "The minimum password length is 8 characters!",
+    "REQUIRED": "Field is required!"
+  },
+  "HEADER": {
+    "PROFILE": "Profile",
+    "SIGNOUT": "Sign out"
+  },
+  "LOGIN": {
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "REMEMBER-ME": "Remember me",
+    "SIGNIN": "Sign in"
+  },
+  "SIDEBAR": {
+    "ARCHIVE": "Archive",
+    "SETTINGS": "Settings",
+    "TICKETS": "Tickets",
+    "USERS": "Users"
+  }
 }

@@ -1,0 +1,16 @@
+@use 'src/assets/scss/variables';
+@use 'src/assets/scss/colors';
+
+.header {
+	&__container {
+		display: flex;
+		flex-flow: row nowrap;
+		height: variables.$HEADER_HEIGHT;
+		width: 100%;
+		background-color: colors.$WHITE;
+		border-bottom: 1px solid colors.$GRAY_BORDER;
+		padding: 0 variables.$SPACING_MEDIUM;
+		justify-content: space-between;
+		align-items: center;
+	}
+}
