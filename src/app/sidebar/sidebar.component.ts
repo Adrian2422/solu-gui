@@ -20,7 +20,7 @@ enum SidebarState {
 	templateUrl: './sidebar.component.html',
 	styleUrls: ['./sidebar.component.scss'],
 	animations: [
-		trigger('toggleAnimation', [
+		trigger('sidebarSlide', [
 			state(SidebarState.COLLAPSED, style({ width: '64px' })),
 			state(SidebarState.EXPANDED, style({ width: '300px' })),
 			transition('* => *', [animate('200ms ease-out')])
@@ -56,19 +56,39 @@ export class SidebarComponent implements OnInit {
 		this.sidebarItems = [
 			{
 				label: 'SIDEBAR.USERS',
-				icon: 'pi-user'
+				icon: 'pi-user',
+				isExpanded: false,
+				subitems: [
+					{
+						label: 'SIDEBAR.USERS',
+						icon: 'pi-user',
+						onClick: () => null
+					}
+				],
+				onClick: (item: ISidebarItem) => {
+					item.isExpanded = !item.isExpanded;
+				}
 			},
 			{
 				label: 'SIDEBAR.TICKETS',
-				icon: 'pi-envelope'
+				icon: 'pi-envelope',
+				isExpanded: false,
+				subitems: [],
+				onClick: () => null
 			},
 			{
 				label: 'SIDEBAR.ARCHIVE',
-				icon: 'pi-database'
+				icon: 'pi-database',
+				isExpanded: false,
+				subitems: [],
+				onClick: () => null
 			},
 			{
 				label: 'SIDEBAR.SETTINGS',
-				icon: 'pi-cog'
+				icon: 'pi-cog',
+				isExpanded: false,
+				subitems: [],
+				onClick: () => null
 			}
 		];
 	}

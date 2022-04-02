@@ -9,7 +9,7 @@
 		gap: variables.$SPACING_SMALL;
 		align-items: center;
 		justify-content: center;
-		border-bottom: 1px solid colors.$BLUE_DARK_PRIMARY;
+		border-bottom: 1px solid colors.$BLUE_PRIMARY_DARK;
 		background-color: colors.$WHITE;
 		color: colors.$WHITE;
 	}
@@ -19,7 +19,7 @@
 		flex-flow: column nowrap;
 		height: 100vh;
 		width: variables.$SIDEBAR_WIDTH_BIG;
-		background-color: colors.$BLUE_DARK_PRIMARY;
+		background-color: colors.$BLUE_PRIMARY_DARK;
 		color: colors.$GRAY_FONT;
 
 		&--small {
@@ -27,9 +27,14 @@
 			flex-flow: column nowrap;
 			height: 100vh;
 			width: variables.$SIDEBAR_WIDTH_SMALL;
-			background-color: colors.$BLUE_DARK_PRIMARY;
+			background-color: colors.$BLUE_PRIMARY_DARK;
 			color: colors.$GRAY_FONT;
 		}
+	}
+
+	&__itemWrapper {
+		display: flex;
+		flex-flow: column nowrap;
 	}
 
 	&__item {
@@ -42,7 +47,44 @@
 		padding-left: variables.$SPACING_LARGE;
 
 		&:hover {
-			background-color: lighten($color: colors.$BLUE_DARK_PRIMARY, $amount: 1);
+			background-color: lighten($color: colors.$BLUE_PRIMARY_DARK, $amount: 1);
+			color: colors.$WHITE;
+		}
+
+		&--left {
+			display: flex;
+			flex-flow: row nowrap;
+			align-items: center;
+			gap: variables.$SPACING_SMALL;
+		}
+
+		&--right {
+			display: flex;
+			flex-flow: row nowrap;
+			align-items: center;
+			justify-content: center;
+			width: 50px;
+		}
+	}
+
+	&__subitems {
+		display: flex;
+		flex-flow: column nowrap;
+	}
+
+	&__subitem {
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		justify-content: space-between;
+		height: 50px;
+		cursor: pointer;
+
+		padding-left: variables.$SPACING_LARGE;
+		background-color: lighten($color: colors.$BLUE_PRIMARY_DARK, $amount: 4);
+
+		&:hover {
+			background-color: colors.$BLUE_PRIMARY_NORMAL;
 			color: colors.$WHITE;
 		}
 

@@ -9,7 +9,6 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-	public title = 'solu-gui';
 	public isAuthenticated!: boolean;
 	public isTokenExpired!: boolean;
 	public intervalId = -1;
@@ -23,6 +22,10 @@ export class AppComponent implements OnInit {
 		this.translate.addLangs([ 'en', 'pl' ]);
 		this.translate.setDefaultLang('en');
 		this.translate.use('en');
+
+		if (this.commonService.checkIfTokenIsAvailable()) {
+			this.isAuthenticated = true;
+		}
 
 		this.commonService.userSigninEvent
 			.pipe(
