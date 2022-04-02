@@ -1,14 +1,32 @@
-<div class="sidebar__container" [@toggleAnimation]="sidebarState">
+<div class="sidebar__container" [@sidebarSlide]="sidebarState">
 	<div class="sidebar__header">
 		<div [class]="translateSidebarState() ? 'logo__text' : 'logo__icon'"></div>
 	</div>
-	<div class="sidebar__item" *ngFor="let item of sidebarItems">
-		<div class="sidebar__item--left">
-			<i class="{{ 'pi ' + item.icon }}"></i>
-			<span *ngIf="translateSidebarState()">{{ item.label | translate }}</span>
+
+	<div class="sidebar__itemWrapper" *ngFor="let item of sidebarItems">
+		<div class="sidebar__item" (click)="item?.onClick(item)">
+			<div class="sidebar__item--left">
+				<i class="{{ 'pi ' + item.icon }}"></i>
+				<span *ngIf="translateSidebarState()">{{
+					item.label | translate
+				}}</span>
+			</div>
+			<div *ngIf="translateSidebarState()" class="sidebar__item--right">
+				<i
+					[class]="item.isExpanded ? 'pi pi-angle-up' : 'pi pi-angle-down'"
+				></i>
+			</div>
 		</div>
-		<div *ngIf="translateSidebarState()" class="sidebar__item--right">
-			<i class="pi pi-angle-right"></i>
+
+		<div class="sidebar__subitems" *ngIf="item.isExpanded">
+			<div class="sidebar__subitem" *ngFor="let subitem of item.subitems">
+				<div class="sidebar__subitem--left">
+					<i class="{{ 'pi ' + subitem.icon }}"></i>
+					<span *ngIf="translateSidebarState()">{{
+						subitem.label | translate
+					}}</span>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

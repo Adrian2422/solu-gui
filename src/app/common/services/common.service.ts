@@ -25,4 +25,8 @@ export class CommonService {
 	public getDecodedToken(token: string): IJwtContent {
 		return jwtDecode(token);
 	}
+
+	public checkIfTokenIsAvailable() {
+		return localStorage.getItem('auth') || sessionStorage.getItem('auth');
+	}
 }
