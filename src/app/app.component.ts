@@ -1,4 +1,4 @@
-import { CommonService } from './common/services/common.service';
+import { CommonService } from './shared/services/common.service';
 import { TranslateService } from '@ngx-translate/core';
 import { tap } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';

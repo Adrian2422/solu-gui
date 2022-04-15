@@ -1,4 +1,5 @@
 import { IJwtContent } from '../interfaces/IJwtContent';
+import { IUserData } from '../interfaces/IUserData';
 import jwtDecode from 'jwt-decode';
 import { EventEmitter, Injectable, Output } from '@angular/core';
 
@@ -6,6 +7,16 @@ import { EventEmitter, Injectable, Output } from '@angular/core';
 	providedIn: 'root'
 })
 export class CommonService {
+	private _userData!: IUserData;
+
+	public get userData(): IUserData {
+		return this._userData;
+	}
+
+	public set userData(value: IUserData) {
+		this._userData = value;
+	}
+
 	@Output() sidebarToggleClickedEvent = new EventEmitter<void>();
 	@Output() userSigninEvent = new EventEmitter<void>();
 	@Output() signOutClickedEvent = new EventEmitter<void>();

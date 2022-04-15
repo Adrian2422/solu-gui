@@ -14,12 +14,19 @@
 			</div>
 			<div class="login__control">
 				<label for="password">{{ 'LOGIN.PASSWORD' | translate }}</label>
-				<input
-					pInputText
-					id="password"
-					type="password"
-					formControlName="password"
-				/>
+				<span class="p-input-icon-right">
+					<i
+						[class]="isPasswordVisible ? 'pi pi-eye-slash' : 'pi pi-eye'"
+						(click)="togglePasswordVisibility()"
+					></i>
+					<input
+						pInputText
+						id="password"
+						[type]="isPasswordVisible ? 'text' : 'password'"
+						formControlName="password"
+						class="login__field--password"
+					/>
+				</span>
 				<small
 					*ngIf="isControlInvalidOrDirty(password)"
 					id="password-help"

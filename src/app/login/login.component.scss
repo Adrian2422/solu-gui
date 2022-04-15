@@ -48,4 +48,10 @@
 			margin-bottom: variables.$SPACING_SMALL;
 		}
 	}
+
+	&__field {
+		&--password {
+			width: 100%;
+		}
+	}
 }

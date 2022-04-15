@@ -21,15 +21,6 @@
 		width: variables.$SIDEBAR_WIDTH_BIG;
 		background-color: colors.$BLUE_PRIMARY_DARK;
 		color: colors.$GRAY_FONT;
-
-		&--small {
-			display: flex;
-			flex-flow: column nowrap;
-			height: 100vh;
-			width: variables.$SIDEBAR_WIDTH_SMALL;
-			background-color: colors.$BLUE_PRIMARY_DARK;
-			color: colors.$GRAY_FONT;
-		}
 	}
 
 	&__itemWrapper {

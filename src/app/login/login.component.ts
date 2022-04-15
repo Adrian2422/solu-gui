@@ -1,4 +1,4 @@
-import { CommonService } from './../common/services/common.service';
+import { CommonService } from '../shared/services/common.service';
 import { ISigninDto } from './dto/signin.dto';
 import { LoginService } from './services/login.service';
 import { tap } from 'rxjs';
@@ -17,6 +17,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 	public loginForm!: FormGroup;
+	public isPasswordVisible = false;
 
 	get email(): AbstractControl | null {
 		return this.loginForm.get('email');
@@ -78,6 +79,10 @@ export class LoginComponent implements OnInit {
 		control: AbstractControl | null
 	): boolean | undefined {
 		return control?.invalid && control?.dirty;
+	}
+
+	public togglePasswordVisibility() {
+		this.isPasswordVisible = !this.isPasswordVisible;
 	}
 
 	public generateErrorMessage(

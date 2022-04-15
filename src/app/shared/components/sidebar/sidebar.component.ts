@@ -1,5 +1,6 @@
-import { CommonService } from './../common/services/common.service';
+import { CommonService } from './../../services/common.service';
 import { ISidebarItem } from './interfaces/ISidebarItem';
+import { Router } from '@angular/router';
 import { tap } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import {
@@ -31,7 +32,10 @@ export class SidebarComponent implements OnInit {
 	public sidebarState = SidebarState.EXPANDED;
 	public sidebarItems: ISidebarItem[] = [];
 
-	constructor(private readonly commonService: CommonService) {}
+	constructor(
+		private readonly commonService: CommonService,
+		private readonly route: Router
+	) {}
 
 	ngOnInit(): void {
 		this.commonService.sidebarToggleClickedEvent
@@ -62,7 +66,9 @@ export class SidebarComponent implements OnInit {
 					{
 						label: 'SIDEBAR.USERS',
 						icon: 'pi-user',
-						onClick: () => null
+						onClick: () => {
+							this.route.navigate(['/users']);
+						}
 					}
 				],
 				onClick: (item: ISidebarItem) => {

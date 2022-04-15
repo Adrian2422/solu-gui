@@ -1,7 +1,8 @@
-import { CommonService } from './../common/services/common.service';
+import { CommonService } from '../../services/common.service';
 import { TranslateService } from '@ngx-translate/core';
-import getToken from 'src/shared/utils/getToken';
+import getToken from 'src/app/shared/utils/getToken';
 import { tap } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { MenuItem, PrimeNGConfig } from 'primeng/api';
 
@@ -17,7 +18,9 @@ export class HeaderComponent implements OnInit {
 	constructor(
 		private readonly primeNgConfig: PrimeNGConfig,
 		private readonly commonService: CommonService,
-		private readonly translate: TranslateService
+		private readonly translate: TranslateService,
+		private readonly route: Router,
+		private readonly activatedRoute: ActivatedRoute
 	) {}
 
 	ngOnInit() {
@@ -48,7 +51,8 @@ export class HeaderComponent implements OnInit {
 						label: labels['HEADER.PROFILE'],
 						icon: 'pi pi-refresh',
 						command: () => {
-							console.log('profile');
+							this.route.navigate(['users/user-profile']);
+							console.log(this.activatedRoute.url);
 						}
 					},
 					{

@@ -1,4 +1,4 @@
-<div class="sidebar__container" [@sidebarSlide]="sidebarState">
+<div [@sidebarSlide]="sidebarState" class="sidebar__container">
 	<div class="sidebar__header">
 		<div [class]="translateSidebarState() ? 'logo__text' : 'logo__icon'"></div>
 	</div>
@@ -19,14 +19,16 @@
 		</div>
 
 		<div class="sidebar__subitems" *ngIf="item.isExpanded">
-			<div class="sidebar__subitem" *ngFor="let subitem of item.subitems">
-				<div class="sidebar__subitem--left">
-					<i class="{{ 'pi ' + subitem.icon }}"></i>
-					<span *ngIf="translateSidebarState()">{{
-						subitem.label | translate
-					}}</span>
+			<ng-container *ngFor="let subitem of item.subitems">
+				<div class="sidebar__subitem" (click)="subitem?.onClick()">
+					<div class="sidebar__subitem--left">
+						<i class="{{ 'pi ' + subitem.icon }}"></i>
+						<span *ngIf="translateSidebarState()">{{
+							subitem.label | translate
+						}}</span>
+					</div>
 				</div>
-			</div>
+			</ng-container>
 		</div>
 	</div>
 </div>

@@ -1,3 +1,4 @@
 export interface IUserResponseDto {
-	lang: string;
+	language: string;
+	color: string;
 }

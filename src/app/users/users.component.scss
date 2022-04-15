@@ -1,0 +1,10 @@
+@use './../../assets/scss/variables.scss';
+@use './../../assets/scss/colors.scss';
+
+.users {
+	&__container {
+		display: flex;
+		flex-flow: column nowrap;
+		margin: variables.$SPACING_LARGE;
+	}
+}
