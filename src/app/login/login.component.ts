@@ -1,6 +1,7 @@
 import { CommonService } from '../shared/services/common.service';
 import { ISigninDto } from './dto/signin.dto';
 import { LoginService } from './services/login.service';
+import getToken from '../shared/utils/getToken';
 import { tap } from 'rxjs';
 import {
 	AbstractControl,
@@ -51,6 +52,10 @@ export class LoginComponent implements OnInit {
 	}
 
 	public onSubmit(): void {
+		if (this.loginForm.invalid) {
+			return;
+		}
+
 		const credentials: ISigninDto = {
 			email: this.email?.value,
 			password: this.password?.value
@@ -61,15 +66,15 @@ export class LoginComponent implements OnInit {
 		this.loginService
 			.login(credentials)
 			.pipe(
-				tap((jwt) => {
+				tap((jwt: string) => {
 					if (isRememberMeChecked) {
-						localStorage.setItem('auth', jwt);
+						localStorage.setItem('token', jwt);
 					} else {
-						sessionStorage.setItem('auth', jwt);
+						sessionStorage.setItem('token', jwt);
 					}
 				}),
 				tap(() => {
-					this.commonService.userSignedIn();
+					this.commonService.token$.next(getToken());
 				})
 			)
 			.subscribe();

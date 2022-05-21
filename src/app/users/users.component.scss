@@ -6,5 +6,6 @@
 		display: flex;
 		flex-flow: column nowrap;
 		margin: variables.$SPACING_LARGE;
+		overflow: auto;
 	}
 }

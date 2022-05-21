@@ -1,4 +1,5 @@
 import { CommonService } from '../../services/common.service';
+import { LoginService } from './../../../login/services/login.service';
 import { TranslateService } from '@ngx-translate/core';
 import getToken from 'src/app/shared/utils/getToken';
 import { tap } from 'rxjs/operators';
@@ -18,8 +19,9 @@ export class HeaderComponent implements OnInit {
 	constructor(
 		private readonly primeNgConfig: PrimeNGConfig,
 		private readonly commonService: CommonService,
+		private readonly loginService: LoginService,
 		private readonly translate: TranslateService,
-		private readonly route: Router,
+		private readonly router: Router,
 		private readonly activatedRoute: ActivatedRoute
 	) {}
 
@@ -51,15 +53,16 @@ export class HeaderComponent implements OnInit {
 						label: labels['HEADER.PROFILE'],
 						icon: 'pi pi-refresh',
 						command: () => {
-							this.route.navigate(['users/user-profile']);
-							console.log(this.activatedRoute.url);
+							const loggedUserId = this.commonService.decodedToken.id;
+							this.router.navigate([`/users/${loggedUserId}`]);
+							console.log(`/users/${loggedUserId}`);
 						}
 					},
 					{
 						label: labels['HEADER.SIGNOUT'],
 						icon: 'pi pi-sign-out',
 						command: () => {
-							this.signOut();
+							this.loginService.logOut();
 						}
 					}
 				]
@@ -69,9 +72,5 @@ export class HeaderComponent implements OnInit {
 
 	public sidebarToggled() {
 		this.commonService.sidebarToggleClicked();
-	}
-
-	public signOut() {
-		this.commonService.signOutClicked();
 	}
 }

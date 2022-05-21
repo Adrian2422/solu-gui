@@ -1,3 +1,5 @@
 export default function getToken(): string {
-	return localStorage?.getItem('auth') || sessionStorage?.getItem('auth') || '';
+	return (
+		localStorage?.getItem('token') || sessionStorage?.getItem('token') || ''
+	);
 }

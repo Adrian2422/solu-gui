@@ -1,3 +1,74 @@
-<div class="users__container">
-	<app-tile></app-tile>
-</div>
+<app-tile>
+	<div class="users__container">
+		<p-table
+			[columns]="columns"
+			[value]="dataSource"
+			styleClass="p-datatable-striped"
+			responsiveLayout="scroll"
+			sortMode="multiple"
+		>
+			<ng-template pTemplate="header" let-columns>
+				<tr>
+					<th *ngFor="let col of columns" [pSortableColumn]="col.field">
+						{{ col.header | translate }}
+						<p-sortIcon [field]="col.field"></p-sortIcon>
+					</th>
+					<th>
+						{{ 'TABLE.LOCK_OR_UNLOCK' | translate }}
+					</th>
+					<th>
+						{{ 'TABLE.SHOW' | translate }}
+					</th>
+					<th>
+						{{ 'TABLE.EDIT' | translate }}
+					</th>
+				</tr>
+			</ng-template>
+			<ng-template pTemplate="body" let-rowData let-columns="columns">
+				<tr>
+					<td *ngFor="let col of columns">
+						{{ rowData[col.field] | translate }}
+					</td>
+					<td>
+						<p-button
+							[pTooltip]="
+								(rowData.isBlocked === 'Blocked'
+									? 'TABLE.UNLOCK'
+									: 'TABLE.LOCK'
+								) | translate
+							"
+							tooltipPosition="bottom"
+							[icon]="
+								rowData.isBlocked === 'Blocked' ? 'pi pi-unlock' : 'pi pi-lock'
+							"
+							[styleClass]="
+								rowData.isBlocked === 'Blocked'
+									? 'p-button-success'
+									: 'p-button-danger' + ' p-button-sm'
+							"
+							(onClick)="toggleLock(rowData.id)"
+						></p-button>
+					</td>
+					<td>
+						<p-button
+							icon="pi pi-eye"
+							styleClass="p-button-sm"
+							pTooltip="{{ 'TABLE.SHOW' | translate }}"
+							tooltipPosition="bottom"
+							(onClick)="showData(rowData.id)"
+						></p-button>
+					</td>
+					<td>
+						<p-button
+							icon="pi pi-user-edit"
+							styleClass="p-button-sm"
+							pTooltip="{{ 'TABLE.EDIT' | translate }}"
+							tooltipPosition="bottom"
+							(onClick)="editUser(rowData.id)"
+						></p-button>
+					</td>
+				</tr>
+			</ng-template>
+		</p-table>
+	</div>
+</app-tile>

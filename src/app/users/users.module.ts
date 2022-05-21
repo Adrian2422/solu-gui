@@ -1,23 +1,20 @@
 import { CommonModule } from '@angular/common';
 import { ComponentsModule } from './../shared/modules/components.module';
+import { CoreModule } from './../shared/modules/core.module';
 import { NgModule } from '@angular/core';
+import { PrimeNgModule } from './../shared/modules/prime-ng.module';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UsersComponent } from './users.component';
-import { Route, RouterModule } from '@angular/router';
-
-const routes: Route[] = [
-	{
-		path: '',
-		component: UsersComponent
-	},
-	{
-		path: 'user-profile',
-		component: UserProfileComponent
-	}
-];
+import { UsersRoutingModule } from './users-routing.module';
 
 @NgModule({
 	declarations: [ UsersComponent, UserProfileComponent ],
-	imports: [ CommonModule, ComponentsModule, RouterModule.forChild(routes) ]
+	imports: [
+		CommonModule,
+		ComponentsModule,
+		PrimeNgModule,
+		CoreModule,
+		UsersRoutingModule
+	]
 })
 export class UsersModule {}

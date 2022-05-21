@@ -1,1 +1,81 @@
-<p>user-profile works!</p>
+<app-tile>
+	<div *ngIf="userForm" class="user-profile__container">
+		<div class="user-profile__header">
+			<h1>{{ 'USER_PROFILE.HEADER' | translate }}</h1>
+			<p-button
+				pRipple
+				[styleClass]="userForm.disabled ? '' : 'p-button-danger'"
+				[label]="
+					(userForm.disabled ? 'USER_PROFILE.EDIT' : 'USER_PROFILE.CANCEL')
+						| translate
+				"
+				(click)="onEditClick()"
+			></p-button>
+			<p-button
+				pRipple
+				*ngIf="!userForm.disabled"
+				styleClass="p-button-success"
+				label="{{ 'USER_PROFILE.SAVE' | translate }}"
+				(click)="onSaveClick()"
+			></p-button>
+		</div>
+
+		<form [formGroup]="userForm" class="user-profile__form">
+			<div class="user-profile__row">
+				<div class="user-profile__control">
+					<label for="firstName"
+						>{{ 'USER_PROFILE.FIRSTNAME' | translate }}
+					</label>
+					<input
+						id="firstName"
+						type="text"
+						pInputText
+						formControlName="firstName"
+					/>
+				</div>
+				<div class="user-profile__control">
+					<label for="lastNAme"
+						>{{ 'USER_PROFILE.LASTNAME' | translate }}
+					</label>
+					<input
+						id="lastName"
+						type="text"
+						pInputText
+						formControlName="lastName"
+					/>
+				</div>
+			</div>
+
+			<div class="user-profile__row">
+				<div class="user-profile__control">
+					<label for="email">{{ 'USER_PROFILE.EMAIL' | translate }} </label>
+					<input id="email" type="text" pInputText formControlName="email" />
+				</div>
+				<div class="user-profile__control">
+					<label for="phone">{{ 'USER_PROFILE.PHONE' | translate }} </label>
+					<input id="phone" type="text" pInputText formControlName="phone" />
+				</div>
+			</div>
+
+			<div class="user-profile__row">
+				<div class="user-profile__control">
+					<label for="role">{{ 'USER_PROFILE.ROLE' | translate }} </label>
+					<input id="role" type="text" pInputText formControlName="role" />
+				</div>
+				<div class="user-profile__control">
+					<label for="status" for="firstName"
+						>{{ 'USER_PROFILE.STATUS' | translate }}
+					</label>
+					<p-dropdown
+						id="status"
+						[options]="statuses"
+						optionLabel="name"
+						optionValue="key"
+						placeholder="Select a status"
+						formControlName="status"
+					></p-dropdown>
+				</div>
+			</div>
+		</form>
+	</div>
+</app-tile>

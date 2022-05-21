@@ -1,11 +1,14 @@
 import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
+import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { MenuModule } from 'primeng/menu';
 import { NgModule } from '@angular/core';
 import { PasswordModule } from 'primeng/password';
 import { RippleModule } from 'primeng/ripple';
 import { SidebarModule } from 'primeng/sidebar';
+import { TableModule } from 'primeng/table';
+import { TooltipModule } from 'primeng/tooltip';
 
 @NgModule({
 	imports: [
@@ -15,7 +18,10 @@ import { SidebarModule } from 'primeng/sidebar';
 		MenuModule,
 		RippleModule,
 		PasswordModule,
-		SidebarModule
+		SidebarModule,
+		TableModule,
+		TooltipModule,
+		DropdownModule
 	],
 	exports: [
 		InputTextModule,
@@ -24,7 +30,10 @@ import { SidebarModule } from 'primeng/sidebar';
 		MenuModule,
 		RippleModule,
 		PasswordModule,
-		SidebarModule
+		SidebarModule,
+		TableModule,
+		TooltipModule,
+		DropdownModule
 	]
 })
 export class PrimeNgModule {}

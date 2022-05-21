@@ -21,5 +21,35 @@
     "SETTINGS": "Ustawienia",
     "TICKETS": "Zgłoszenia",
     "USERS": "Użytkownicy"
+  },
+  "TABLE": {
+    "ACTIVE": "Aktywny",
+    "EDIT": "Edytuj",
+    "EMAIL": "Email",
+    "FIRST_NAME": "Imię",
+    "ID": "ID",
+    "LAST_NAME": "Nazwisko",
+    "LOCK": "Zablokuj",
+    "LOCKED": "Zablokowany",
+    "LOCK_OR_UNLOCK": "Zablokuj lub odblokuj",
+    "PHONE": "Telefon",
+    "ROLE": "Rola",
+    "SHOW": "Pokaż",
+    "STATUS": "Status",
+    "UNLOCK": "Odblokuj"
+  },
+  "USER_PROFILE": {
+    "ACTIVE": "Aktywny",
+    "CANCEL": "Anuluj",
+    "EDIT": "Edytuj",
+    "EMAIL": "Email",
+    "FIRSTNAME": "Imię",
+    "HEADER": "Profil użytkownika",
+    "LASTNAME": "Nazwisko",
+    "LOCKED": "Zablokowany",
+    "PHONE": "Telefon",
+    "ROLE": "Rola",
+    "SAVE": "Zapisz",
+    "STATUS": "Status"
   }
 }

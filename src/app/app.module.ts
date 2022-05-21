@@ -1,42 +1,32 @@
+import { ApiInterceptor } from './interceptors/api.interceptor';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { ComponentsModule } from './shared/modules/components.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { PrimeNgModule } from './shared/modules/prime-ng.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { UserProfileComponent } from './users/user-profile/user-profile.component';
-import { UsersComponent } from './users/users.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Route, RouterModule } from '@angular/router';
+import {
+	HTTP_INTERCEPTORS,
+	HttpClient,
+	HttpClientModule
+} from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 	return new TranslateHttpLoader(http);
 }
 
-const routes: Route[] = [
-	{
-		path: 'users',
-		loadChildren: () =>
-			import('./users/users.module').then((m) => m.UsersModule)
-	}
-];
-
 @NgModule({
-	declarations: [
-		AppComponent,
-		HeaderComponent,
-		LoginComponent,
-		SidebarComponent
-	],
+	declarations: [ AppComponent, HeaderComponent, SidebarComponent ],
 	imports: [
+		AppRoutingModule,
 		BrowserAnimationsModule,
 		BrowserModule,
 		FlexLayoutModule,
@@ -51,10 +41,15 @@ const routes: Route[] = [
 				useFactory: HttpLoaderFactory,
 				deps: [HttpClient]
 			}
-		}),
-		RouterModule.forRoot(routes)
+		})
 	],
-	providers: [],
+	providers: [
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: ApiInterceptor,
+			multi: true
+		}
+	],
 	bootstrap: [AppComponent]
 })
 export class AppModule {}

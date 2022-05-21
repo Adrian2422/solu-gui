@@ -7,7 +7,9 @@
 		flex-flow: column nowrap;
 		min-width: 100px;
 		min-height: 100px;
+		max-height: calc(100vh - variables.$HEADER_HEIGHT - 48px);
 		background-color: colors.$WHITE;
 		border-radius: 10px;
+		margin: variables.$SPACING_LARGE;
 	}
 }

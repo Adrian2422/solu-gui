@@ -21,5 +21,35 @@
     "SETTINGS": "Settings",
     "TICKETS": "Tickets",
     "USERS": "Users"
+  },
+  "TABLE": {
+    "ACTIVE": "Active",
+    "EDIT": "Edit",
+    "EMAIL": "Email",
+    "FIRST_NAME": "First name",
+    "ID": "ID",
+    "LAST_NAME": "Last name",
+    "LOCK": "Lock",
+    "LOCKED": "Blocked",
+    "LOCK_OR_UNLOCK": "Lock or unlock",
+    "PHONE": "Phone",
+    "ROLE": "Role",
+    "SHOW": "Show",
+    "STATUS": "Status",
+    "UNLOCK": "Unlock"
+  },
+  "USER_PROFILE": {
+    "ACTIVE": "Active",
+    "CANCEL": "Cancel",
+    "EDIT": "Edit",
+    "EMAIL": "Email",
+    "FIRSTNAME": "First name",
+    "HEADER": "User profile",
+    "LASTNAME": "Last name",
+    "LOCKED": "Locked",
+    "PHONE": "Phone",
+    "ROLE": "Role",
+    "SAVE": "Save",
+    "STATUS": "Status"
   }
 }

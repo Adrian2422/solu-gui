@@ -1,4 +1,4 @@
-<ng-container *ngIf="isAuthenticated; else login">
+<ng-container *ngIf="isAuthenticated; else noUI">
 	<div class="layout__wrapper">
 		<app-sidebar></app-sidebar>
 
@@ -11,6 +11,6 @@
 	</div>
 </ng-container>
 
-<ng-template #login>
-	<app-login></app-login>
+<ng-template #noUI>
+	<router-outlet></router-outlet>
 </ng-template>
