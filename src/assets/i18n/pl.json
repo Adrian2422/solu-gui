@@ -24,6 +24,9 @@
   },
   "TABLE": {
     "ACTIVE": "Aktywny",
+    "ASIGNEE-ID": "ID konsultanta",
+    "CREATOR-ID": "ID autora",
+    "DESCRIPTION": "Opis",
     "EDIT": "Edytuj",
     "EMAIL": "Email",
     "FIRST_NAME": "Imię",
@@ -33,9 +36,13 @@
     "LOCKED": "Zablokowany",
     "LOCK_OR_UNLOCK": "Zablokuj lub odblokuj",
     "PHONE": "Telefon",
+    "PRIORITY": "Priorytet",
+    "PRODUCT-ID": "ID produktu",
     "ROLE": "Rola",
     "SHOW": "Pokaż",
     "STATUS": "Status",
+    "TITLE": "Tytuł",
+    "TYPE": "Typ",
     "UNLOCK": "Odblokuj"
   },
   "USER_PROFILE": {

@@ -30,8 +30,6 @@ export class UserProfileComponent implements OnInit {
 	) {}
 
 	ngOnInit(): void {
-		console.log('lol');
-
 		this.route.paramMap.subscribe((paramMap) => {
 			const paramUserId = Number(paramMap.get('id'));
 			const loggedUserId = this.commonService.decodedToken.id;

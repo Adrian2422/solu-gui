@@ -24,6 +24,9 @@
   },
   "TABLE": {
     "ACTIVE": "Active",
+    "ASIGNEE-ID": "Asignee ID",
+    "CREATOR-ID": "Creator ID",
+    "DESCRIPTION": "Description",
     "EDIT": "Edit",
     "EMAIL": "Email",
     "FIRST_NAME": "First name",
@@ -33,9 +36,13 @@
     "LOCKED": "Blocked",
     "LOCK_OR_UNLOCK": "Lock or unlock",
     "PHONE": "Phone",
+    "PRIORITY": "Priority",
+    "PRODUCT-ID": "Product ID",
     "ROLE": "Role",
     "SHOW": "Show",
     "STATUS": "Status",
+    "TITLE": "Title",
+    "TYPE": "Type",
     "UNLOCK": "Unlock"
   },
   "USER_PROFILE": {

@@ -4,6 +4,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { LoginComponent } from './login/login.component';
 import { LoginModule } from './login/login.module';
 import { NgModule } from '@angular/core';
+import { TicketsModule } from './tickets/tickets.module';
 import { UsersModule } from './users/users.module';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -30,9 +31,18 @@ const routes: Routes = [
 	{
 		path: 'users',
 		canActivate: [AuthGuard],
-		loadChildren: (): Promise<LoginModule> =>
+		loadChildren: (): Promise<UsersModule> =>
 			import('./users/users.module').then(
 				(m: typeof import('./users/users.module')): UsersModule => m.UsersModule
+			)
+	},
+	{
+		path: 'tickets',
+		canActivate: [AuthGuard],
+		loadChildren: (): Promise<TicketsModule> =>
+			import('./tickets/tickets.module').then(
+				(m: typeof import('./tickets/tickets.module')): TicketsModule =>
+					m.TicketsModule
 			)
 	},
 	{

@@ -57,8 +57,6 @@ export class UsersComponent implements OnInit {
 	}
 
 	public showData(userId: number) {
-		console.log(userId);
-
 		this.router.navigate([`${userId}`], { relativeTo: this.route });
 	}
 

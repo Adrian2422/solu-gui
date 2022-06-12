@@ -1,28 +1,27 @@
-<app-tile>
-	<div *ngIf="userForm" class="user-profile__container">
-		<div class="user-profile__header">
-			<h1>{{ 'USER_PROFILE.HEADER' | translate }}</h1>
-			<p-button
-				pRipple
-				[styleClass]="userForm.disabled ? '' : 'p-button-danger'"
-				[label]="
-					(userForm.disabled ? 'USER_PROFILE.EDIT' : 'USER_PROFILE.CANCEL')
-						| translate
-				"
-				(click)="onEditClick()"
-			></p-button>
-			<p-button
-				pRipple
-				*ngIf="!userForm.disabled"
-				styleClass="p-button-success"
-				label="{{ 'USER_PROFILE.SAVE' | translate }}"
-				(click)="onSaveClick()"
-			></p-button>
-		</div>
+<div class="m-3">
+	<p-panel [header]="'USER_PROFILE.HEADER' | translate">
+		<div *ngIf="userForm" [formGroup]="userForm" class="flex flex-column">
+			<div class="flex flex-row flex-wrap m-1 gap-1">
+				<p-button
+					pRipple
+					[styleClass]="userForm.disabled ? '' : 'p-button-danger'"
+					[label]="
+						(userForm.disabled ? 'USER_PROFILE.EDIT' : 'USER_PROFILE.CANCEL')
+							| translate
+					"
+					(click)="onEditClick()"
+				></p-button>
+				<p-button
+					pRipple
+					*ngIf="!userForm.disabled"
+					styleClass="p-button-success"
+					label="{{ 'USER_PROFILE.SAVE' | translate }}"
+					(click)="onSaveClick()"
+				></p-button>
+			</div>
 
-		<form [formGroup]="userForm" class="user-profile__form">
-			<div class="user-profile__row">
-				<div class="user-profile__control">
+			<div class="flex flex-row flex-wrap m-1 gap-3">
+				<div class="flex flex-row gap-1 align-items-center">
 					<label for="firstName"
 						>{{ 'USER_PROFILE.FIRSTNAME' | translate }}
 					</label>
@@ -33,9 +32,9 @@
 						formControlName="firstName"
 					/>
 				</div>
-				<div class="user-profile__control">
-					<label for="lastNAme"
-						>{{ 'USER_PROFILE.LASTNAME' | translate }}
+				<div class="flex flex-row gap-1 align-items-center">
+					<label for="lastName">
+						{{ 'USER_PROFILE.LASTNAME' | translate }}
 					</label>
 					<input
 						id="lastName"
@@ -46,23 +45,23 @@
 				</div>
 			</div>
 
-			<div class="user-profile__row">
-				<div class="user-profile__control">
+			<div class="flex flex-row flex-wrap m-1 gap-3">
+				<div class="flex flex-row gap-1 align-items-center">
 					<label for="email">{{ 'USER_PROFILE.EMAIL' | translate }} </label>
 					<input id="email" type="text" pInputText formControlName="email" />
 				</div>
-				<div class="user-profile__control">
+				<div class="flex flex-row gap-1 align-items-center">
 					<label for="phone">{{ 'USER_PROFILE.PHONE' | translate }} </label>
 					<input id="phone" type="text" pInputText formControlName="phone" />
 				</div>
 			</div>
 
-			<div class="user-profile__row">
-				<div class="user-profile__control">
+			<div class="flex flex-row flex-wrap m-1 gap-3">
+				<div class="flex flex-row gap-1 align-items-center">
 					<label for="role">{{ 'USER_PROFILE.ROLE' | translate }} </label>
 					<input id="role" type="text" pInputText formControlName="role" />
 				</div>
-				<div class="user-profile__control">
+				<div class="flex flex-row gap-1 align-items-center">
 					<label for="status" for="firstName"
 						>{{ 'USER_PROFILE.STATUS' | translate }}
 					</label>
@@ -76,6 +75,6 @@
 					></p-dropdown>
 				</div>
 			</div>
-		</form>
-	</div>
-</app-tile>
+		</div>
+	</p-panel>
+</div>

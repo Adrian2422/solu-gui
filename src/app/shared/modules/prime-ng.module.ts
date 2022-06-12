@@ -4,6 +4,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { MenuModule } from 'primeng/menu';
 import { NgModule } from '@angular/core';
+import { PanelModule } from 'primeng/panel';
 import { PasswordModule } from 'primeng/password';
 import { RippleModule } from 'primeng/ripple';
 import { SidebarModule } from 'primeng/sidebar';
@@ -21,7 +22,8 @@ import { TooltipModule } from 'primeng/tooltip';
 		SidebarModule,
 		TableModule,
 		TooltipModule,
-		DropdownModule
+		DropdownModule,
+		PanelModule
 	],
 	exports: [
 		InputTextModule,
@@ -33,7 +35,8 @@ import { TooltipModule } from 'primeng/tooltip';
 		SidebarModule,
 		TableModule,
 		TooltipModule,
-		DropdownModule
+		DropdownModule,
+		PanelModule
 	]
 })
 export class PrimeNgModule {}

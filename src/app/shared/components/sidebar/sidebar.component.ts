@@ -79,8 +79,16 @@ export class SidebarComponent implements OnInit {
 				label: 'SIDEBAR.TICKETS',
 				icon: 'pi-envelope',
 				isExpanded: false,
-				subitems: [],
-				onClick: () => null
+				subitems: [
+					{
+						label: 'SIDEBAR.TICKETS',
+						icon: 'pi-envelope',
+						onClick: () => {
+							this.route.navigate(['/tickets']);
+						}
+					}
+				],
+				onClick: (item: ISidebarItem) => this.expandItem(item)
 			},
 			{
 				label: 'SIDEBAR.ARCHIVE',
@@ -97,5 +105,9 @@ export class SidebarComponent implements OnInit {
 				onClick: () => null
 			}
 		];
+	}
+
+	private expandItem(item: ISidebarItem): void {
+		item.isExpanded = !item.isExpanded;
 	}
 }

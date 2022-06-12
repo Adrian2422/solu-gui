@@ -1,24 +1,2 @@
 @use './../../../assets//scss//variables.scss';
 @use './../../../assets/scss/colors.scss';
-
-.user-profile {
-	&__container {
-		display: flex;
-		flex-flow: column nowrap;
-		margin: variables.$SPACING_LARGE;
-	}
-
-	&__header {
-		display: flex;
-		flex-flow: row wrap;
-		align-items: center;
-		gap: variables.$SPACING_MEDIUM;
-	}
-
-	&__row {
-		display: flex;
-		flex-flow: row wrap;
-		gap: variables.$SPACING_MEDIUM;
-		margin-bottom: variables.$SPACING_SMALL;
-	}
-}
